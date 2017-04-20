@@ -1,0 +1,108 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Node/Angular Todo App</title>
+
+   
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> 
+   <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #todo-list              { margin-bottom:30px; }
+	   .btn btn-danger          { display:      block;
+                                  margin-left:  auto;
+                                  margin-right: 0;  }
+   
+       input.chk                {width: 20px;
+                                 margin:0; }
+ 
+
+      </style>
+
+    <script type="text/javascript" src="fusioncharts/js/fusioncharts.js"></script>
+    <script type="text/javascript" src="fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="core.js"></script>
+	<script src ="angularjs-plugin/wrappers/angularjs/angular-fusioncharts.min.js"></script>
+	<script type="text/javascript" src="fusioncharts/js/fusioncharts.js"></script>
+    <script type="text/javascript" src="fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+</head>
+
+<body ng-controller="mainController">
+   <!-- <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+        </div>-->
+		<div class="container">
+		<div id="todo-form" class="row">
+         <div class="col-sm-8 col-sm-offset-2 text-center">
+             <form>
+                 <div class="form-group">
+					
+                   	<input type="text" class="form-control input-lg text-center" placeholder="Add more Todos" ng-model="formData.text"><br>
+                  
+
+                    <button type="submit" class="btn btn-primary " ng-click="createTodo()">Add</button>
+				</div>
+				
+				
+             </form>
+          </div>
+		  
+
+	<!--	<div class="col-sm-4 col-sm-offset-4 ">
+		  <!-- <input type="button" value="Delete all" class="btn btn-danger" ng-click="deleteAllTodo()">
+		</div>-->
+		
+		<!-- TODO LIST -->
+        <div id="todo-list" class="row">
+            <div class="col-sm-6 ">
+              
+               <table class="table">
+	<tr>
+		<th>Names</th>
+		<th>Todos</th>
+	    <th>Action</th>
+	</tr>
+	<tr ng-repeat=" (key,name) in todo">
+		<td><b>{{key}}</b></td>
+		
+		<td><span ng-repeat="todo in name">{{todo.name}}<input type="checkbox" ng-model="todo.id" ng-click="stateChanged(todo.id,key)" class="chk"><br /></span><br /></td>
+
+		
+        <td><input type="button" value="Delete" class="btn btn-default" ng-click="deleteTodo(key)"></td>
+		
+	</tr>
+</table>
+          </div>
+		  <div class="col-sm-6 ">
+		 
+		   <div id="chart-container">FusionCharts XT will load here!</div>
+		</div>
+		 </div>
+	</div>
+   </div>  
+   
+  
+      <!--<div id="todo-form" class="row">
+         <div class="col-sm-8 col-sm-offset-2 text-center">
+             <form>
+                 <div class="form-group">
+					
+                   	<input type="text" class="form-control input-lg text-center" placeholder="I want to learn MEAN Stack" ng-model="formData.text">
+                  </div>
+
+                    <button type="submit" class="btn btn-primary " ng-click="createTodo()">Add</button>
+				
+             </form>
+          </div>-->
+		  
+		 
